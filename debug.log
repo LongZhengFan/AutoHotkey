@@ -1,0 +1,10 @@
+[0528/122828.701:ERROR:process_reader_win.cc(242)] ReadMemory at 0x5485420 of 44 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0528/122828.703:WARNING:pe_image_annotations_reader.cc(133)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\66.0.3359.181\chrome_child.dll
+[0619/132017.840:ERROR:process_reader_win.cc(242)] ReadMemory at 0xc3ddb0 of 44 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0619/132018.019:WARNING:pe_image_annotations_reader.cc(133)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\67.0.3396.87\chrome_child.dll
+[0622/191752.258:ERROR:process_reader_win.cc(242)] ReadMemory at 0x542de58 of 44 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0622/191752.796:WARNING:pe_image_annotations_reader.cc(133)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\67.0.3396.87\chrome_child.dll
+[0712/093226.582:ERROR:process_reader_win.cc(242)] ReadMemory at 0x56bde20 of 44 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0712/093226.626:WARNING:pe_image_annotations_reader.cc(133)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\67.0.3396.99\chrome_child.dll
+[0801/160630.058:ERROR:process_reader_win.cc(242)] ReadMemory at 0xb7dda8 of 44 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0801/160630.100:WARNING:pe_image_annotations_reader.cc(133)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\67.0.3396.99\chrome_child.dll

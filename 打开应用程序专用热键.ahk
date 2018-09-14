@@ -105,6 +105,20 @@ Return
   Run,C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 Return
 
+:*:ggss::
+	InputBox, keyword, Google 搜索, 亲爱的主人，请输入您需要搜索的内容
+	Run,https://www.google.com.hk
+	Ddck("Google - Google Chrome",1)
+	SendInput, {SHIFT}%keyword%{ENTER}{SHIFT}
+Return
+
+:*:bdss::
+	InputBox, keyword, Baidu 搜索, 亲爱的主人，请输入您需要搜索的内容
+	Run,https://www.baidu.com	
+	Ddck("百度一下，你就知道 - Google Chrome",1)
+	SendInput, {SHIFT}%keyword%{ENTER}{SHIFT}
+Return
+
 ;以下三个为办公软件程序
 
 :*:dkword::
@@ -143,6 +157,10 @@ Return
 
 :*:dknotepad::
   Run,D:\应用程序\Notepad++\notepad++.exe
+Return
+
+:*:dksublime::
+  Run,D:\Program Files\Sublime Text 3\sublime_text.exe
 Return
 
 ;以下四个为多媒体程序
@@ -196,3 +214,97 @@ Return
 ;以下为打开autohotkey脚本程序
 
 :*:dkahk::
+
+;以下为打开Git、ruby程序
+
+:*:dkgit::
+	Run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Git\Git Bash
+	Ddck("mintty")
+	SendInput,{ENTER}
+Return
+
+:*:dkjkfw::
+	WinActivate, Start Command Prompt with Ruby
+	IfWinNotActive, Start Command Prompt with Ruby
+	{
+		Run,C:\Users\xiaozhou\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Ruby 2.4.4-1-x64 with MSYS2\Start Command Prompt with Ruby
+		Ddck("Start Command Prompt with Ruby")
+		SendInput,{SHIFT}jekyll serve{ENTER}
+	}
+	else{
+		SendInput,jekyll serve{ENTER}
+	}
+Return
+
+:*:gbjkfw::
+	WinActivate, jekyll  serve
+	SendInput,^c
+	Sleep,1000
+	SendInput,Y{ENTER}
+Return
+
+; 以下为湘潭大学校园网认证程序
+
+#w::
+	Run, http://172.16.0.32:8080/eportal/index.jsp?wlanuserip=0ab5b1c3c6fd84fe5b8faa120d1d0763&wlanacname=776e154f4e46ba9668906e203954b23a&ssid=&nasip=0d09a1de724f795b5b8c3bae719e0bd7&snmpagentip=&mac=8047be3af5818b81223df485a83a950b&t=wireless-v2&url=d20b79da3e12046d789ef330d087c33e451856b9c4d64bb892fec938e15f8ae20fe2efa844813086a2abb2f0115b731bd44d644760b565f8d58b4ea40c8bc49f&apmac=&nasid=776e154f4e46ba9668906e203954b23a&vid=a48bd0765eb8bc00&port=30e2ab4d2df9b52e&nasportid=5b9da5b08a53a5405fcca25f7e4ce14433a731b72e9fbd08c52fa2551b6cad1a
+	Ddck("上网认证 - Google Chrome",1)
+	Fs("{SHIFT}201821511193{TAB}054717{ENTER}")
+Return
+
+#c::
+	WinActivate, 登录成功 - Google Chrome
+	Sleep, 100
+	PixelSearch, Px, Py, 0, 0, 1362, 249, 0x78CF43, 3, Fast
+	MouseClick, left, %Px%, %Py%
+	Sleep, 1000
+	PixelSearch, Rx, Ry, 0, 0, 1362, 400, 0xF48542, 3, Fast
+	MouseClick, left, %Rx%, %Ry%
+	Ddck("您已成功下线 - Google Chrome")
+	SendInput, ^w
+Return
+
+#s::
+	loop
+	{
+		SendInput, {DOWN}{HOME}{RIGHT}
+		Sleep, 1500
+		SendInput, ^c
+		Sleep, 300
+		promf := clipboard
+		SendInput, {RIGHT}{RIGHT}{RIGHT}{RIGHT}{RIGHT}
+		Sleep, 300
+		SendInput, ^c
+		Sleep, 300
+		promt := clipboard
+		SendInput, {RIGHT}
+		Sleep, 1500
+		SendInput, ^c
+		Sleep, 300
+		proms := clipboard
+		MsgBox, 3, 是否继续, 是否涉及量化分析
+		IfMsgBox, YES 
+			SendInput, {LEFT}{LEFT}{LEFT}0{TAB}
+		else
+			IfMsgBox, NO
+			{
+				Sleep, 300
+				SendInput, {LEFT}{LEFT}{LEFT}{LEFT}
+				Sleep, 300
+				InputBox, cate, 类别输入, 请输入该论文所属类别——%promf%——%promt%, , 1000, 600
+				Sleep, 300
+				SendInput, {SHIFT}%cate%{SHIFT}
+				Sleep, 300
+				SendInput, {ENTER}{UP}{RIGHT}1
+				Sleep, 300
+				SendInput, {ENTER}
+				Sleep, 300
+				SendInput, {UP}{RIGHT}
+				Sleep, 300
+				InputBox, mode, 模型输入, 请输入该论文所用模型——%proms%
+				Sleep, 300
+				SendInput, {SHIFT}%mode%{SHIFT}{ENTER}{UP}{RIGHT}
+			}
+			else
+				break
+	}
+Return

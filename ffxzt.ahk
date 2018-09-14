@@ -45,7 +45,7 @@ Return
 	IfMsgBox, YES
 	{
 		MsgBox, , 休眠提醒, 再见，主人（づ￣3￣）づ╭❤～,2
-		;Sleep,10000000
+		;Sleep,2400000
 		DllCall("PowrProf\SetSuspendState", "int", 1, "int", 1, "int", 0)
 	}
 	 
@@ -108,3 +108,34 @@ Return
 	}
 Return
 */
+
+:*:wykj::
+
+	InputBox, num, 前进步数,请输入快进次数
+	Loop, %num%
+	{
+		Send,{RIGHT}
+		Sleep,500
+	}
+Return
+
+:*:wykt::
+
+	InputBox, num, 后退步数,请输入快退次数
+	Loop, %num%
+	{
+		Send,{LEFT}
+		Sleep,500
+	}
+Return
+
+#A::
+	SendInput, <p>{DELETE}{DELETE}{DELETE}{DELETE}
+	Sleep, 100
+	Loop, 10
+	{
+		SendInput,{END}
+	}
+	Sleep, 100
+	SendInput, </p>{DOWN}{DOWN}{HOME}
+Return
